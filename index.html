@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unknown</title>
+  <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Hello ate Jhesryl🌸</h1>
+    <p id="hint">I made a short message for you.</p>
+    <button id="revealBtn">Click me</button>
+    <p id="hiddenMessage"></p>
+    <button id="exitBtn" style="display:none;">Exit</button>
+  </div>
+
+  <script>
+    const revealBtn = document.getElementById("revealBtn");
+    const hiddenMessage = document.getElementById("hiddenMessage");
+    const hint = document.getElementById("hint");
+    const exitBtn = document.getElementById("exitBtn");
+
+    let clickCount = 0;
+    const hints = [
+      "You're so cool in every angle! ",
+      "I smile every time I saw you smile! ",
+      "You always give me the butterflies! ",
+      "I hope you'll appreciate this message of mine. ",
+      "Wait nahihiya ako ate.",
+      "Isang pindot pa teh..."
+    ];
+
+    // 💌 Final hidden confession
+    const finalMessage = "So ayun nga ate jhesryl, I like you po. No words can express my feelings and I don't know how to say this to you in person. That's why I made this simple website. I hope you like it, wishing to know you better ate. Regarding sa bisyo ate, I can stop my vices for you and for myself. Napansin ko po kasing hindi ka nagbibisyo, that's why I conclude that you hate a man with vices. I also wanna say thank you, for being patient with us noong tinuturuan niyo kami ng basic knowledge about the commands, proper reporting and greetings. Yun lang po ate, sorry po nahihiya ako :).";
+
+    revealBtn.addEventListener("click", function() {
+      if (clickCount < hints.length) {
+        hiddenMessage.textContent = hints[clickCount];
+        hiddenMessage.classList.remove("final-message");
+        hiddenMessage.classList.add("hint-message");
+      } else {
+        hiddenMessage.textContent = finalMessage;
+        hiddenMessage.classList.remove("hint-message");
+        hiddenMessage.classList.add("final-message");
+
+        revealBtn.style.display = "none";
+        hint.style.display = "none";
+        exitBtn.style.display = "inline-block"; // Show exit button
+      }
+      clickCount++;
+    });
+
+    // Exit button function
+    exitBtn.addEventListener("click", function() {
+      // Try to close the window
+      window.close();
+
+      // If blocked, redirect instead
+      window.location.href = "https://google.com";
+    });
+  </script>
+</body>
+</html>
